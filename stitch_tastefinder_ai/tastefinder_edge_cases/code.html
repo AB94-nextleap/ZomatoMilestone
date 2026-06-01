@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TasteFinder - Discovery Edge Cases</title>
+<!-- Google Fonts: DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#fffbff",
+                    "inverse-primary": "#ffb3b1",
+                    "on-background": "#141b2b",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#5e39e0",
+                    "secondary": "#7c5800",
+                    "on-secondary-container": "#6b4b00",
+                    "outline": "#8f6f6e",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffba20",
+                    "surface-container": "#e9edff",
+                    "on-secondary-fixed": "#271900",
+                    "primary": "#b7122a",
+                    "primary-fixed": "#ffdad8",
+                    "primary-container": "#db313f",
+                    "background": "#f9f9ff",
+                    "on-tertiary-fixed-variant": "#4816cb",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#410007",
+                    "on-surface-variant": "#5b403f",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#cabeff",
+                    "surface-container-highest": "#dce2f7",
+                    "secondary-container": "#feb700",
+                    "outline-variant": "#e4bebc",
+                    "surface-tint": "#bb162c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#5e4200",
+                    "primary-fixed-dim": "#ffb3b1",
+                    "surface-variant": "#dce2f7",
+                    "secondary-fixed": "#ffdea8",
+                    "on-tertiary-fixed": "#1c0062",
+                    "on-primary-fixed-variant": "#92001c",
+                    "surface-container-high": "#e1e8fd",
+                    "tertiary-container": "#7757fa",
+                    "on-tertiary-container": "#fffbff",
+                    "surface": "#f9f9ff",
+                    "surface-container-low": "#f1f3ff",
+                    "inverse-on-surface": "#edf0ff",
+                    "tertiary-fixed": "#e6deff",
+                    "surface-bright": "#f9f9ff",
+                    "on-surface": "#141b2b",
+                    "inverse-surface": "#293040",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#d3daef",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "margin-desktop": "40px",
+                    "base": "8px",
+                    "container-max-width": "1280px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["DM Sans"],
+                    "headline-lg": ["DM Sans"],
+                    "headline-sm": ["DM Sans"],
+                    "display-lg": ["DM Sans"],
+                    "label-sm": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "label-md": ["DM Sans"],
+                    "body-md": ["DM Sans"],
+                    "headline-md": ["DM Sans"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                    "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                    "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                    "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                    "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                    "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                    "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 left-0 w-full z-50 flex flex-col items-center px-margin-mobile md:px-margin-desktop py-base bg-surface shadow-sm transition-all">
+<div class="w-full max-w-[1280px] flex flex-row items-center justify-between">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">TasteFinder</h1>
+<div class="flex items-center gap-4">
+<button aria-label="Notifications" class="text-on-surface-variant hover:text-primary transition-colors scale-95 active:scale-90">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button aria-label="Profile" class="text-on-surface-variant hover:text-primary transition-colors scale-95 active:scale-90">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-20 pb-24 max-w-[1280px] mx-auto w-full">
+<!-- View Toggle for Demonstration Purposes -->
+<div class="flex justify-center gap-4 py-4 px-margin-mobile">
+<button class="px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-highest text-on-surface active transition-all" id="btn-variant-a">Show Variant A: Empty State</button>
+<button class="px-4 py-2 rounded-full font-label-md text-label-md bg-surface text-on-surface-variant border border-surface-variant transition-all hover:bg-surface-container-low" id="btn-variant-b">Show Variant B: Degraded AI</button>
+</div>
+<!-- VARIANT A: Empty State Container -->
+<div class="flex flex-col items-center justify-center min-h-[614px] px-margin-mobile text-center animate-fade-in" id="variant-a">
+<div class="bg-surface-container rounded-full p-8 mb-6 shadow-sm border border-surface-variant">
+<span class="material-symbols-outlined text-outline" style="font-size: 64px; font-variation-settings: 'wght' 200;">search_off</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-3">
+                No restaurants match
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto mb-8">
+                Try relaxing your area, cuisine, minimum rating, or budget. We have plenty of other delicious options waiting for you.
+            </p>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-3 rounded-full hover:bg-surface-tint active:scale-95 transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 18px;">tune</span>
+                Adjust filters
+            </button>
+</div>
+<!-- VARIANT B: Degraded AI Container (Hidden by default) -->
+<div class="hidden flex-col px-margin-mobile md:px-margin-desktop animate-fade-in" id="variant-b">
+<!-- Amber Alert Banner -->
+<div class="bg-secondary-container text-on-secondary-container p-4 rounded-xl shadow-sm flex items-start md:items-center gap-3 mb-8 border border-secondary/20">
+<span class="material-symbols-outlined text-secondary mt-0.5 md:mt-0" style="font-variation-settings: 'FILL' 1;">warning</span>
+<p class="font-body-md text-body-md">
+                    AI ranking unavailable — showing top-rated matches from your filters.
+                </p>
+</div>
+<!-- Header for results -->
+<div class="flex justify-between items-end mb-6">
+<h2 class="font-headline-sm text-headline-sm text-on-background">Top Rated Near You</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">12 Results</span>
+</div>
+<!-- Results Grid (Cards without AI blocks) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<article class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-variant group cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+<div class="relative h-48 w-full bg-surface-container-high overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A high-quality, brightly lit photograph of a beautifully plated Italian pasta dish in a modern, warm-toned restaurant setting. The fresh basil and rich red tomato sauce pop against a clean white ceramic plate, reflecting the appetizing and confident brand aesthetic. Ambient natural light creates soft, inviting shadows across a light oak table." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCywDz1zauo6lpCicVQ8pXUKjpQYu2Nb7bIAvsH54CFM0Py3k50mcbxhlSsr4oXysMYd1JqFaJbSGMPIVk-dtdD9ylihrYq96rpkX518R4FGvlxlIQfvNXg-i2gksWodNRZDZCLEELNUGmPT5NOMVy6KubiOv6svgIsa7WvQwaF6yKtz1pIU4If1JZ0gxNrQFhQrRK48uhHS9XwyS5aDMsOfiumXBbwA1HXDCrtkjJoBOpsrp7HkoWmjO1sepclWhooGt_Aq0Hx7-Y');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Osteria Bella</h3>
+<p class="font-label-md text-label-md text-surface-container-low opacity-90">Italian • Pasta</p>
+</div>
+<div class="bg-surface/20 backdrop-blur-md px-2 py-1 rounded-lg border border-surface/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-fixed" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-primary">4.8</span>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between text-on-surface-variant font-body-md text-body-md">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-outline" style="font-size: 18px;">location_on</span>
+<span>0.8 mi • Downtown</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface bg-surface-container-highest px-2 py-0.5 rounded-full">$$</span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-variant group cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+<div class="relative h-48 w-full bg-surface-container-high overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A vibrant, close-up shot of an authentic Japanese sushi platter featuring fresh salmon and tuna nigiri. The composition is sleek and corporate modern, with the colorful fish standing out against a dark slate serving board. Warm, directional lighting enhances the tactile texture of the rice and the glossy finish of the seafood, embodying a premium culinary experience." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAl9M0LTe_vbhpHgo4UYTwIQDW28UIEUR0PLNbXEC0iIoUUxSlPer--lRB3AtskDzd7bzPpP0fkYy7fONCNkkakl66JKBroLmLKpql7IdoLm3hq0qBT0K0hZqqMfHf2okXOpJoKNtLkrvdr3Zk9oS9ek8n7uR0_uek1vcGy1vLMaTs_x6-RCH2BgJXsUaJ7ooYH-eXIm1JPybMMvBjR1Z9T2RXynGm8MOfb46zLJN-_HFF6VNtxK_5KR6UrsFEI2HslI2TvbDJUXhw');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Nami Sushi</h3>
+<p class="font-label-md text-label-md text-surface-container-low opacity-90">Japanese • Sushi</p>
+</div>
+<div class="bg-surface/20 backdrop-blur-md px-2 py-1 rounded-lg border border-surface/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-fixed" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-primary">4.9</span>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between text-on-surface-variant font-body-md text-body-md">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-outline" style="font-size: 18px;">location_on</span>
+<span>1.2 mi • Westside</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface bg-surface-container-highest px-2 py-0.5 rounded-full">$$$</span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-variant group cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 hidden md:block">
+<div class="relative h-48 w-full bg-surface-container-high overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A comforting, warm photograph of a hearty modern American brunch setup, featuring thick-cut avocado toast with a perfectly poached egg on top. The background is softly blurred to keep focus on the dish, emphasizing the tactile warmth of the app's aesthetic. Soft morning light streams across a rustic wooden table, creating an inviting, food-forward mood." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBI3hJ6JcR0jCg61ZITkqBhCB3jdxzHerQkPJTIuC1Oz9eMKNRMKBgevYIwcHOKws2BHwtdAFsEebekgR5r7Is_TG39Tz82k0ak3Qm5vXSLDfAoWwQfgK0R9eh1u8ZOVbHyKlz6dcOLC26kQtoS-wT7JL2pSsv6d0wtI9uJIHrmqxPrkGMrzCeeSGZJeb0usE-McDvUK3dWK1N8gsHvQYgrKeYQFSudjjbnBzAROzDS5LsmgZ-UENY8gbk2O7ArF2iBWJ7Kq-FtJw0');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-primary">The Harvest</h3>
+<p class="font-label-md text-label-md text-surface-container-low opacity-90">American • Brunch</p>
+</div>
+<div class="bg-surface/20 backdrop-blur-md px-2 py-1 rounded-lg border border-surface/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-fixed" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-primary">4.6</span>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between text-on-surface-variant font-body-md text-body-md">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-outline" style="font-size: 18px;">location_on</span>
+<span>2.0 mi • Uptown</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface bg-surface-container-highest px-2 py-0.5 rounded-full">$$</span>
+</div>
+</div>
+</article>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Shared Component) - Mobile Only, hidden on md -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-4 bg-surface shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-xl md:hidden">
+<!-- Discover (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-95 duration-200 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm mt-0.5">Discover</span>
+</a>
+<!-- Saved (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-sm text-label-sm mt-0.5">Saved</span>
+</a>
+<!-- AI Plan (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-sm text-label-sm mt-0.5">AI Plan</span>
+</a>
+<!-- Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm text-label-sm mt-0.5">Profile</span>
+</a>
+</nav>
+<!-- Simple JS to toggle between states for demonstration -->
+<script>
+        const btnA = document.getElementById('btn-variant-a');
+        const btnB = document.getElementById('btn-variant-b');
+        const viewA = document.getElementById('variant-a');
+        const viewB = document.getElementById('variant-b');
+
+        function setActiveButton(activeBtn, inactiveBtn) {
+            activeBtn.classList.add('bg-surface-container-highest', 'text-on-surface', 'border-transparent');
+            activeBtn.classList.remove('bg-surface', 'text-on-surface-variant', 'border-surface-variant');
+            
+            inactiveBtn.classList.add('bg-surface', 'text-on-surface-variant', 'border-surface-variant');
+            inactiveBtn.classList.remove('bg-surface-container-highest', 'text-on-surface', 'border-transparent');
+        }
+
+        btnA.addEventListener('click', () => {
+            viewA.classList.remove('hidden');
+            viewA.classList.add('flex');
+            viewB.classList.add('hidden');
+            viewB.classList.remove('flex');
+            setActiveButton(btnA, btnB);
+        });
+
+        btnB.addEventListener('click', () => {
+            viewB.classList.remove('hidden');
+            viewB.classList.add('flex');
+            viewA.classList.add('hidden');
+            viewA.classList.remove('flex');
+            setActiveButton(btnB, btnA);
+        });
+    </script>
+<style>
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body></html>

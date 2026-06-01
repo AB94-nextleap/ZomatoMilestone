@@ -1,0 +1,11 @@
+# Estimated cost for two (INR) → budget band
+# Adjust after inspecting dataset distribution during ingest.
+
+bands:
+  low:
+    max: 500
+  medium:
+    min: 500
+    max: 1500
+  high:
+    min: 1500

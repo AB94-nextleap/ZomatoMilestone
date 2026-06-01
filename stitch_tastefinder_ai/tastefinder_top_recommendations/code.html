@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Results - TasteFinder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#ffffff",
+                      "on-primary-container": "#fffbff",
+                      "inverse-primary": "#ffb3b1",
+                      "on-background": "#141b2b",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#5e39e0",
+                      "secondary": "#7c5800",
+                      "on-secondary-container": "#6b4b00",
+                      "outline": "#8f6f6e",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#ffba20",
+                      "surface-container": "#e9edff",
+                      "on-secondary-fixed": "#271900",
+                      "primary": "#b7122a",
+                      "primary-fixed": "#ffdad8",
+                      "primary-container": "#db313f",
+                      "background": "#f9f9ff",
+                      "on-tertiary-fixed-variant": "#4816cb",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#410007",
+                      "on-surface-variant": "#5b403f",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#cabeff",
+                      "surface-container-highest": "#dce2f7",
+                      "secondary-container": "#feb700",
+                      "outline-variant": "#e4bebc",
+                      "surface-tint": "#bb162c",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#5e4200",
+                      "primary-fixed-dim": "#ffb3b1",
+                      "surface-variant": "#dce2f7",
+                      "secondary-fixed": "#ffdea8",
+                      "on-tertiary-fixed": "#1c0062",
+                      "on-primary-fixed-variant": "#92001c",
+                      "surface-container-high": "#e1e8fd",
+                      "tertiary-container": "#7757fa",
+                      "on-tertiary-container": "#fffbff",
+                      "surface": "#f9f9ff",
+                      "surface-container-low": "#f1f3ff",
+                      "inverse-on-surface": "#edf0ff",
+                      "tertiary-fixed": "#e6deff",
+                      "surface-bright": "#f9f9ff",
+                      "on-surface": "#141b2b",
+                      "inverse-surface": "#293040",
+                      "on-primary": "#ffffff",
+                      "surface-dim": "#d3daef",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "margin-desktop": "40px",
+                      "base": "8px",
+                      "container-max-width": "1280px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "DM Sans"
+                      ],
+                      "headline-lg": [
+                              "DM Sans"
+                      ],
+                      "headline-sm": [
+                              "DM Sans"
+                      ],
+                      "display-lg": [
+                              "DM Sans"
+                      ],
+                      "label-sm": [
+                              "DM Sans"
+                      ],
+                      "body-lg": [
+                              "DM Sans"
+                      ],
+                      "label-md": [
+                              "DM Sans"
+                      ],
+                      "body-md": [
+                              "DM Sans"
+                      ],
+                      "headline-md": [
+                              "DM Sans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Ambient shadows and tonal layering */
+        .ambient-shadow-sm {
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
+        }
+        .ambient-shadow-md {
+            box-shadow: 0px 8px 32px rgba(0,0,0,0.08);
+        }
+        .ai-explanation-border {
+            border-left-width: 4px;
+            border-left-color: #7C5CFF; /* Tertiary container equivalent, strictly adhering to instructions */
+        }
+        .ai-explanation-bg {
+            background-color: rgba(124, 92, 255, 0.05);
+        }
+        
+        /* Shimmer for skeletons */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        .skeleton-shimmer {
+            background: linear-gradient(90deg, #E9ECEF 25%, #F8F9FA 50%, #E9ECEF 75%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite linear;
+        }
+
+        /* Gradient overlay for cards */
+        .card-gradient {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md text-body-md antialiased pt-[72px] pb-[90px] md:pb-0 md:pt-[88px] flex flex-col items-center">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex flex-col items-center px-margin-mobile md:px-margin-desktop py-base bg-surface dark:bg-surface-dim shadow-sm">
+<div class="flex flex-row justify-between w-full max-w-container-max-width items-center h-12 md:h-16">
+<div class="flex items-center gap-4">
+<!-- Back Button (implied task flow) -->
+<button aria-label="Go back" class="md:hidden text-on-surface hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">TasteFinder</div>
+</div>
+<!-- Desktop Nav Items -->
+<div class="hidden md:flex flex-row items-center space-x-8">
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="text-on-surface-variant dark:text-outline font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors pb-1">Discover</div>
+</div>
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="text-on-surface-variant dark:text-outline font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors pb-1">Saved</div>
+</div>
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="text-primary dark:text-primary-fixed-dim font-label-md text-label-md border-b-2 border-primary pb-1">AI Plan</div>
+</div>
+</div>
+<div class="flex flex-row space-x-2 md:space-x-4 items-center">
+<button aria-label="Notifications" class="p-2 text-on-surface-variant hover:text-primary transition-colors scale-95 active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button aria-label="User profile" class="p-2 text-on-surface-variant hover:text-primary transition-colors scale-95 active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-container-max-width px-margin-mobile md:px-margin-desktop py-gutter flex-1 flex flex-col">
+<!-- AI Summary Banner -->
+<section class="bg-surface-container-lowest rounded-xl p-gutter ambient-shadow-sm border border-surface-variant mb-gutter relative overflow-hidden flex flex-col md:flex-row md:items-center gap-gutter">
+<!-- Sparkle accent background element -->
+<div class="absolute -right-10 -top-10 text-primary-fixed-dim opacity-20 pointer-events-none">
+<span class="material-symbols-outlined" style="font-size: 160px; font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex-shrink-0 bg-primary-container text-on-primary-container w-12 h-12 rounded-full flex items-center justify-center z-10 shadow-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="z-10 flex-1">
+<h1 class="font-headline-sm text-headline-sm text-on-surface mb-2">Here are your personalized picks</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">"Five strong Italian options in Indiranagar within a medium budget, including family-friendly spots."</p>
+</div>
+<div class="z-10 flex gap-2 flex-wrap md:flex-col md:items-end md:justify-center">
+<span class="inline-flex items-center gap-1 bg-surface-container-high text-on-surface px-3 py-1.5 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined" style="font-size: 14px;">location_on</span> Indiranagar
+                 </span>
+<span class="inline-flex items-center gap-1 bg-surface-container-high text-on-surface px-3 py-1.5 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined" style="font-size: 14px;">payments</span> Medium Budget
+                 </span>
+</div>
+</section>
+<!-- Restaurant Cards List -->
+<div class="flex flex-col gap-gutter mb-gutter">
+<!-- Card 1 (Gold Rank) -->
+<article class="bg-surface-container-lowest rounded-xl ambient-shadow-sm border border-surface-variant overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:ambient-shadow-md hover:-translate-y-1">
+<!-- Image Section -->
+<div class="relative w-full md:w-[320px] h-48 md:h-auto flex-shrink-0 group">
+<div class="absolute inset-0 bg-surface-variant animate-pulse -z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A high-quality, brightly lit photograph of an inviting Italian cafe setting. A rustic wooden table is set with freshly baked pizza featuring blistered crusts, vibrant red tomato sauce, and melted mozzarella. A glass of chilled beverage sits nearby. The lighting is warm and natural, evoking a premium yet approachable, family-friendly dining experience. Corporate modern aesthetic with tactile warmth." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdnLGOmAKkQO0Z3ksDBdSv9d-RIRbvjQBxz0Hdhr9laa5VT0TxPxyneciPPyVjY-r1IjoX9gvS6JGIaVjgduf_smu4YJmdppi6xYNWD5I9SxGwTJcaGoxDJ9BSiLlAgIEGJRYiazcrwOP_EYrUExPb5EkENtjQJrCUT7VoQZe5759oApdZ07rGOaJUUlaG7Mjpcj47fCoyoK297iloJ5FyxwViFencs2oL87qUOVOH1V9RW4bp2Fg-ddnvJaVJPE5OAFT-A4mw95Y');">
+</div>
+<!-- Gradient overlay for text legibility if needed, though this design places text outside -->
+<!-- Rank Badge -->
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md text-label-md shadow-md flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                        #1 Match
+                    </div>
+<!-- Favorite FAB -->
+<button aria-label="Save Truffles" class="absolute top-4 right-4 w-10 h-10 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface transition-colors shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</button>
+</div>
+<!-- Content Section -->
+<div class="p-gutter flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Truffles</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">location_on</span> Indiranagar
+                            </p>
+</div>
+<div class="bg-surface-container px-2 py-1 rounded font-label-md text-label-md text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-fixed-dim" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+                            4.6
+                        </div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-on-surface-variant font-label-sm text-label-sm border border-surface-variant px-2 py-1 rounded">₹1,200 for two</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm border border-surface-variant px-2 py-1 rounded">Italian</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm border border-surface-variant px-2 py-1 rounded">Cafe</span>
+</div>
+<!-- AI Explanation Block -->
+<div class="mt-auto pt-4 border-t border-surface-variant">
+<div class="ai-explanation-bg ai-explanation-border p-3 rounded-r-lg flex gap-3 items-start">
+<span class="material-symbols-outlined text-tertiary-container mt-0.5" style="font-size: 20px; font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<div>
+<span class="font-label-sm text-label-sm text-tertiary-container uppercase tracking-wider block mb-1">Why we picked this</span>
+<p class="font-body-md text-body-md text-on-surface">"Highly rated Italian with a relaxed vibe; fits your medium budget and family-friendly ask."</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl ambient-shadow-sm border border-surface-variant overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:ambient-shadow-md hover:-translate-y-1">
+<div class="relative w-full md:w-[320px] h-48 md:h-auto flex-shrink-0 group">
+<div class="absolute inset-0 bg-surface-variant animate-pulse -z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A modern, bustling brewpub environment with warm industrial lighting. A table features a large, artisanal wood-fired pizza with fresh toppings and an array of craft beverages. The scene is energetic and social, capturing a premium dining atmosphere. Light, vibrant tones highlight the food quality. Corporate modern style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDD9l3h0bd3VpPxmmYqu5kfn3j2S8OOSaA2YmrxrEfMrt1aedLkQBW6RjyfeWbbT0E91b6ijNqykN2vxvtr0QRnwsi6_S0OWL6Py4IdeeC2d_ylro06kZiVNKKlwZfEVxJe4WwJKzfqYWIYZ01zWE_Kgemcb5C_WV1lNuvKOigSmcfD7s1kC6dv8wJrjpbgnne0swhTgErB0doZtqyCpmkXwmcwqIyyHwWSHQo0Gp9MlExnzGlAublZ_c1eq0-xJKvfC5fCRaSzmMM');">
+</div>
+<div class="absolute top-4 left-4 bg-surface/90 text-on-surface px-3 py-1 rounded-full font-label-md text-label-md shadow-sm font-semibold">
+                        #2
+                    </div>
+<button aria-label="Save Toit" class="absolute top-4 right-4 w-10 h-10 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface transition-colors shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</button>
+</div>
+<div class="p-gutter flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Toit</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">location_on</span> Indiranagar
+                            </p>
+</div>
+<div class="bg-surface-container px-2 py-1 rounded font-label-md text-label-md text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-fixed-dim" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+                            4.4
+                        </div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-on-surface-variant font-label-sm text-label-sm border border-surface-variant px-2 py-1 rounded">₹1,500 for two</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm border border-surface-variant px-2 py-1 rounded">Italian</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm border border-surface-variant px-2 py-1 rounded">Pizza</span>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-variant">
+<div class="ai-explanation-bg ai-explanation-border p-3 rounded-r-lg flex gap-3 items-start">
+<span class="material-symbols-outlined text-tertiary-container mt-0.5" style="font-size: 20px; font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface">"Popular brewpub with strong Italian menu; great for groups."</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-lowest rounded-xl ambient-shadow-sm border border-surface-variant overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:ambient-shadow-md hover:-translate-y-1">
+<div class="relative w-full md:w-[320px] h-48 md:h-auto flex-shrink-0 group">
+<div class="absolute inset-0 bg-surface-variant animate-pulse -z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A close-up shot of an elegant plate of handmade pasta in a rich, creamy sauce, garnished with fresh herbs. The setting is a cozy, dedicated Italian restaurant with warm, intimate lighting. The focus is entirely on the appetizing food, highlighting culinary quality and consistency. Warm-neutral base palette." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDds-4mcD9VPP-AGEbTXF7kq0Nx56TwFjWkkyTTh4fQdXVt-LcGmVlt5SniPodyD4urV-36IjLoARIGJqEG4J_Te5yZO5PpHnuCsQguY37xhkrSUtdcnO5lyZ91aEvOTFM6NBMnyV61rTEkujUtniAfjKHnl6hErNAmnG5K1wx0GMg2rm_Fbzn3Ygg1gM-Jpw18YuiKCYfYpMKZydfq1GOPXCq2Ypu0ewHDZsb8O5cWEvWbcZpITs6A2nXQQJYlImVfCqo_mUv-XLc');">
+</div>
+<div class="absolute top-4 left-4 bg-surface/90 text-on-surface px-3 py-1 rounded-full font-label-md text-label-md shadow-sm font-semibold">
+                        #3
+                    </div>
+<button aria-label="Save Little Italy" class="absolute top-4 right-4 w-10 h-10 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface transition-colors shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</button>
+</div>
+<div class="p-gutter flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Little Italy</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">location_on</span> Indiranagar
+                            </p>
+</div>
+<div class="bg-surface-container px-2 py-1 rounded font-label-md text-label-md text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-fixed-dim" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+                            4.3
+                        </div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-on-surface-variant font-label-sm text-label-sm border border-surface-variant px-2 py-1 rounded">₹900 for two</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm border border-surface-variant px-2 py-1 rounded">Italian</span>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-variant">
+<div class="ai-explanation-bg ai-explanation-border p-3 rounded-r-lg flex gap-3 items-start">
+<span class="material-symbols-outlined text-tertiary-container mt-0.5" style="font-size: 20px; font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface">"Dedicated Italian spot within budget with consistent ratings."</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Collapsible Search Details -->
+<details class="group bg-surface-container-lowest rounded-xl ambient-shadow-sm border border-surface-variant overflow-hidden mb-gutter">
+<summary class="flex justify-between items-center cursor-pointer p-4 font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors list-none">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 20px;">manage_search</span>
+                    Search details
+                </div>
+<span class="material-symbols-outlined transform transition-transform group-open:rotate-180 text-on-surface-variant">expand_more</span>
+</summary>
+<div class="p-4 pt-0 border-t border-surface-variant mt-2 bg-surface-container-lowest text-on-surface-variant font-body-md text-body-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface uppercase mb-1">Parameters applied</span>
+<ul class="list-disc list-inside space-y-1 ml-1 text-sm">
+<li>Cuisine: Italian</li>
+<li>Location: Indiranagar</li>
+<li>Budget: Medium (₹800 - ₹1,500)</li>
+<li>Modifiers: Family-friendly</li>
+</ul>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface uppercase mb-1">AI Model Data</span>
+<p class="text-sm">Processed 42 venues in area. Confidence score: 94%. Last updated: Just now.</p>
+</div>
+</div>
+</div>
+</details>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface dark:bg-surface-container-lowest shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant dark:hover:bg-surface-container-high transition-all w-16 h-14 rounded-xl cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">explore</span>
+<span class="font-label-sm text-label-sm">Discover</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant dark:hover:bg-surface-container-high transition-all w-16 h-14 rounded-xl cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-fixed text-on-primary-container dark:text-on-primary-fixed rounded-full px-4 py-1 Active: scale-95 duration-200 cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm">AI Plan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant dark:hover:bg-surface-container-high transition-all w-16 h-14 rounded-xl cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<!-- Safe area padding for bottom nav on mobile -->
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+    </style>
+</body></html>

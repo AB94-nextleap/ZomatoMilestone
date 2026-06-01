@@ -1,0 +1,11 @@
+# Application settings (override via environment variables where noted)
+
+data_path: data/restaurants.parquet
+
+# Filtering & LLM (used in later phases)
+candidate_limit: 25
+top_k: 5
+
+# LLM (Phase 4+)
+llm_provider: groq
+llm_model: llama-3.3-70b-versatile

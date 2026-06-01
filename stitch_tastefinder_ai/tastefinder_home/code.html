@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TasteFinder - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "inverse-primary": "#ffb3b1",
+                        "on-background": "#141b2b",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#5e39e0",
+                        "secondary": "#7c5800",
+                        "on-secondary-container": "#6b4b00",
+                        "outline": "#8f6f6e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#ffba20",
+                        "surface-container": "#e9edff",
+                        "on-secondary-fixed": "#271900",
+                        "primary": "#b7122a",
+                        "primary-fixed": "#ffdad8",
+                        "primary-container": "#db313f",
+                        "background": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#4816cb",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#410007",
+                        "on-surface-variant": "#5b403f",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#cabeff",
+                        "surface-container-highest": "#dce2f7",
+                        "secondary-container": "#feb700",
+                        "outline-variant": "#e4bebc",
+                        "surface-tint": "#bb162c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#5e4200",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "surface-variant": "#dce2f7",
+                        "secondary-fixed": "#ffdea8",
+                        "on-tertiary-fixed": "#1c0062",
+                        "on-primary-fixed-variant": "#92001c",
+                        "surface-container-high": "#e1e8fd",
+                        "tertiary-container": "#7757fa",
+                        "on-tertiary-container": "#fffbff",
+                        "surface": "#f9f9ff",
+                        "surface-container-low": "#f1f3ff",
+                        "inverse-on-surface": "#edf0ff",
+                        "tertiary-fixed": "#e6deff",
+                        "surface-bright": "#f9f9ff",
+                        "on-surface": "#141b2b",
+                        "inverse-surface": "#293040",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#d3daef",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "container-max-width": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["DM Sans"],
+                        "headline-lg": ["DM Sans"],
+                        "headline-sm": ["DM Sans"],
+                        "display-lg": ["DM Sans"],
+                        "label-sm": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "label-md": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "headline-md": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Hide scrollbar for clean horizontal scrolls */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen pb-[80px] md:pb-0 pt-0 md:pt-[72px]">
+<!-- Top Navigation (Desktop) -->
+<nav class="hidden md:flex fixed top-0 left-0 w-full z-50 bg-surface shadow-sm px-margin-desktop py-base items-center justify-between">
+<div class="flex items-center">
+<span class="text-headline-md font-headline-md font-bold text-primary">TasteFinder</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-variant">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<!-- Header -->
+<header class="mb-10 text-center md:text-left">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background mb-3 md:hidden">
+                TasteFinder
+            </h1>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-2">Find Your Next Great Meal</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                Personalized picks from real Zomato data — filtered by you, ranked by AI.
+            </p>
+</header>
+<!-- Preference Form Card -->
+<section class="bg-surface-container-lowest shadow-[0_4px_20px_rgba(0,0,0,0.05)] rounded-[16px] border border-outline-variant/40 p-6 md:p-8 mb-8">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Location Field -->
+<div class="flex flex-col gap-2 relative">
+<label class="font-label-md text-label-md text-on-surface">Location</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant z-10 pointer-events-none">location_on</span>
+<input class="w-full bg-background border border-outline-variant/60 rounded-lg pl-10 pr-[120px] py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Enter neighborhood or city" type="text" value="Indiranagar"/>
+<button class="absolute right-3 text-primary font-label-md text-label-md hover:text-surface-tint transition-colors flex items-center gap-1 bg-background px-2" type="button">
+<span class="material-symbols-outlined text-[16px]">my_location</span>
+                            Current
+                        </button>
+</div>
+</div>
+<!-- Budget Field -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Budget</label>
+<div class="flex bg-surface-container rounded-full p-1 h-[50px]">
+<button class="flex-1 flex items-center justify-center rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+                            $
+                        </button>
+<button class="flex-1 flex items-center justify-center rounded-full bg-surface-container-lowest shadow-sm text-on-surface font-label-md text-label-md transition-colors" type="button">
+                            $$
+                        </button>
+<button class="flex-1 flex items-center justify-center rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+                            $$$
+                        </button>
+</div>
+</div>
+<!-- Cuisine Field -->
+<div class="flex flex-col gap-2 relative">
+<label class="font-label-md text-label-md text-on-surface">Cuisine</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant z-10 pointer-events-none">restaurant</span>
+<select class="w-full appearance-none bg-background border border-outline-variant/60 rounded-lg pl-10 pr-10 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors">
+<option selected="" value="italian">Italian</option>
+<option value="indian">Indian</option>
+<option value="chinese">Chinese</option>
+<option value="mexican">Mexican</option>
+<option value="japanese">Japanese</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Min Rating Field -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Minimum Rating</label>
+<div class="flex gap-2 overflow-x-auto no-scrollbar py-1">
+<button class="flex-shrink-0 px-4 py-2 rounded-full border border-outline-variant/60 bg-background text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" type="button">
+                            3.5+
+                        </button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full border-2 border-primary bg-primary-fixed/20 text-on-primary-fixed-variant font-label-md text-label-md transition-colors flex items-center gap-1" type="button">
+                            4.0+ <span class="material-symbols-outlined text-[14px] icon-fill">star</span>
+</button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full border border-outline-variant/60 bg-background text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" type="button">
+                            4.5+
+                        </button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full border border-outline-variant/60 bg-background text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors" type="button">
+                            Any
+                        </button>
+</div>
+</div>
+<!-- Additional Preferences (Full Width spanning 2 cols on md) -->
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-2">
+                        Vibe &amp; Extras
+                        <span class="material-symbols-outlined text-[16px] text-tertiary">auto_awesome</span>
+</label>
+<input class="w-full bg-background border border-outline-variant/60 rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-tertiary focus:ring-1 focus:ring-tertiary transition-colors" placeholder="e.g. outdoor seating, romantic, pet friendly" type="text" value="family-friendly, quick service"/>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1 ml-1">AI will prioritize these keywords in reviews.</p>
+</div>
+<!-- Number of Results (Half Width) -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Number of Results</label>
+<div class="relative flex items-center">
+<select class="w-full appearance-none bg-background border border-outline-variant/60 rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors">
+<option value="3">Top 3 spots</option>
+<option selected="" value="5">Top 5 spots</option>
+<option value="10">Top 10 spots</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</form>
+</section>
+<!-- Primary CTA -->
+<button class="w-full md:w-auto md:min-w-[300px] md:mx-auto flex items-center justify-center gap-2 bg-primary hover:bg-surface-tint text-on-primary font-headline-sm text-headline-sm py-4 px-8 rounded-[16px] shadow-lg transition-all active:scale-[0.98] mb-12">
+<span class="material-symbols-outlined icon-fill">search</span>
+            Get recommendations
+        </button>
+<!-- Empty State Visual -->
+<div class="flex flex-col items-center justify-center text-center opacity-80 mt-8">
+<div class="w-full max-w-[400px] aspect-video rounded-[24px] overflow-hidden mb-6 relative shadow-sm border border-outline-variant/20 bg-surface-container">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-90" data-alt="A high-quality, editorial food photography shot of a beautifully plated contemporary Italian dish, perhaps a vibrant handmade pasta with fresh basil and deep red tomato sauce. The dish sits on a textured, warm-neutral ceramic plate on a light oak table. The lighting is soft, natural, and highly appetizing, creating a warm and confident aesthetic that perfectly complements a modern, food-forward digital interface. The overall composition is centered with ample negative space around the edges, rendered in a light-mode friendly color palette featuring bright whites, warm grays, and rich culinary reds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAZk-PYQo5yaupYI7MFTrVVjBd3tSK6WY4A2y9aHZ8-jJreebgGZp77vaJ3HvkXX_ovXNXzAR2bWEIhR3J84oolPtzvJXPaj8uinxlYeZzwaHnwz7Y-u63a1uORq7rLYWJfIFUN-psgEYDyBlhbiMPOsUweuef4LKh3FmeXEzDCbf6FKjA_C2tKJ7ZKkzkcfXgoCgS6fgRBCjo35AT1HAzCqw4WGt1HDkKxRK5682MaZCBkUsZv-HgmLMm4gcd_N8zjlSpsxGqdSo"/>
+</div>
+<p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-sm">
+                Set your preferences above and we’ll find the best culinary spots tailored just for you.
+            </p>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-xl">
+<!-- Active Tab: Discover -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-95 duration-200">
+<span class="material-symbols-outlined icon-fill">explore</span>
+<span class="font-label-sm text-label-sm mt-1">Discover</span>
+</button>
+<!-- Inactive Tab: Saved -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all px-4 py-1 rounded-full">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-sm text-label-sm mt-1">Saved</span>
+</button>
+<!-- Inactive Tab: AI Plan -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all px-4 py-1 rounded-full">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-sm text-label-sm mt-1">AI Plan</span>
+</button>
+<!-- Inactive Tab: Profile -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all px-4 py-1 rounded-full">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</button>
+</nav>
+</body></html>
