@@ -371,41 +371,36 @@ if submit:
         # Cost formatting
         cost_str = f"₹{int(rest.estimated_cost_for_two):,}" if rest.estimated_cost_for_two else "N/A"
         
-        # Construct Card HTML
-        card_html = f"""
-        <div class="restaurant-card">
-            <div class="restaurant-header">
-                <div>
-                    <h2 class="restaurant-title">{rest.name}</h2>
-                    <p style="margin: 4px 0 0 0; color: #a0a0a0; font-size: 0.95rem;">
-                        📍 {rest.location}
-                    </p>
-                </div>
-                <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
-                    <span class="restaurant-rank-badge">RANK #{rec.rank}</span>
-                    <span class="rating-badge">⭐ {rest.rating:.1f} / 5.0</span>
-                </div>
-            </div>
-            
-            <div style="margin-bottom: 12px;">
-                {cuisine_badges}
-            </div>
-            
-            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px;">
-                <div class="restaurant-cost">
-                    💰 Cost for two: {cost_str} ({rest.budget_band.upper()} budget)
-                </div>
-                <div>
-                    {highlight_badges}
-                </div>
-            </div>
-            
-            <div class="rationale-block">
-                <div class="rationale-header">AI Explanation</div>
-                "{rec.explanation}"
-            </div>
-        </div>
-        """
+        # Construct Card HTML (left-aligned to prevent markdown parser from treating indentation as a code block)
+        card_html = f"""<div class="restaurant-card">
+<div class="restaurant-header">
+<div>
+<h2 class="restaurant-title">{rest.name}</h2>
+<p style="margin: 4px 0 0 0; color: #a0a0a0; font-size: 0.95rem;">
+📍 {rest.location}
+</p>
+</div>
+<div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+<span class="restaurant-rank-badge">RANK #{rec.rank}</span>
+<span class="rating-badge">⭐ {rest.rating:.1f} / 5.0</span>
+</div>
+</div>
+<div style="margin-bottom: 12px;">
+{cuisine_badges}
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px;">
+<div class="restaurant-cost">
+💰 Cost for two: {cost_str} ({rest.budget_band.upper()} budget)
+</div>
+<div>
+{highlight_badges}
+</div>
+</div>
+<div class="rationale-block">
+<div class="rationale-header">AI Explanation</div>
+"{rec.explanation}"
+</div>
+</div>"""
         st.markdown(card_html, unsafe_allow_html=True)
 else:
     # Initial landing screen design
